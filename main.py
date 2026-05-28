@@ -63,6 +63,20 @@ print(stats)
 # 4. `pasa_filtros(stats, args)`
 
 
+def pasa_filtros(stats, minimo_longitud):
+    if stats["longitud"] >= minimo_longitud:
+        return True
+
+    return False
+
+
+stats = {"encabezado": ">seq1", "longitud": 6, "gc": 0.66}
+
+resultado = pasa_filtros(stats, 5)
+
+print(resultado)
+
+
 # 5. `escribir_resultados(stats, ruta)`
 
 
