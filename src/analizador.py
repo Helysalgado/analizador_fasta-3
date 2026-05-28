@@ -20,7 +20,12 @@
 
 
 def leer_fasta(ruta):
-    archivo = open(ruta, "r")
+    try:
+        archivo = open(ruta, "r")
+
+    except FileNotFoundError:
+        print("Error: archivo no encontrado")
+        return None, None
 
     lineas = archivo.readlines()
 
@@ -253,6 +258,9 @@ def main():
     args = parsear_argumentos()
 
     encabezado, secuencia = leer_fasta(args.input)
+
+    if encabezado is None:
+        return
 
     stats = calcular_estadisticas(encabezado, secuencia)
 
