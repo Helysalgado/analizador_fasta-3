@@ -45,7 +45,28 @@ print(resultado)
 
 
 # 3. `calcular_estadisticas(encabezado, secuencia)`
+def calcular_estadisticas(encabezado, secuencia):
+    longitud = len(secuencia)
+
+    gc = calcular_gc(secuencia)
+
+    estadisticas = {"encabezado": encabezado, "longitud": longitud, "gc": gc}
+
+    return estadisticas
+
+
+stats = calcular_estadisticas(">seq1", "ATGCGC")
+
+print(stats)
+
+
 # 4. `pasa_filtros(stats, args)`
+
+
 # 5. `escribir_resultados(stats, ruta)`
+
+
 # 6. `parsear_argumentos()`
+
+
 # 7. `main()`
