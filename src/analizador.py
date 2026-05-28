@@ -211,9 +211,9 @@ import argparse
 def parsear_argumentos():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("entrada")
+    parser.add_argument("-i", "--input", required=True)
 
-    parser.add_argument("salida")
+    parser.add_argument("-o", "--output", required=True)
 
     args = parser.parse_args()
 
@@ -252,14 +252,14 @@ def parsear_argumentos():
 def main():
     args = parsear_argumentos()
 
-    encabezado, secuencia = leer_fasta(args.entrada)
+    encabezado, secuencia = leer_fasta(args.input)
 
     stats = calcular_estadisticas(encabezado, secuencia)
 
     cumple = pasa_filtros(stats, 5)
 
     if cumple:
-        escribir_resultados(stats, args.salida)
+        escribir_resultados(stats, args.output)
 
         print("Secuencia aceptada")
 
