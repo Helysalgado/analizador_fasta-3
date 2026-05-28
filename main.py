@@ -94,7 +94,27 @@ stats = {"encabezado": ">seq1", "longitud": 6, "gc": 0.66}
 
 escribir_resultados(stats, "resultado.txt")
 
-# 6. `parsear_argumentos()`
 
+# 6. `parsear_argumentos()`
+import argparse
+
+
+def parsear_argumentos():
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("entrada")
+
+    parser.add_argument("salida")
+
+    args = parser.parse_args()
+
+    return args
+
+
+args = parsear_argumentos()
+
+print(args.entrada)
+
+print(args.salida)
 
 # 7. `main()`
