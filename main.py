@@ -118,3 +118,25 @@ print(args.entrada)
 print(args.salida)
 
 # 7. `main()`
+
+
+def main():
+    args = parsear_argumentos()
+
+    encabezado, secuencia = leer_fasta(args.entrada)
+
+    stats = calcular_estadisticas(encabezado, secuencia)
+
+    cumple = pasa_filtros(stats, 5)
+
+    if cumple:
+        escribir_resultados(stats, args.salida)
+
+        print("Secuencia aceptada")
+
+    else:
+        print("Secuencia rechazada")
+
+
+if __name__ == "__main__":
+    main()
