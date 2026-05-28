@@ -138,11 +138,17 @@ def calcular_estadisticas(encabezado, secuencia):
 # si no cumple devolver False
 
 
-def pasa_filtros(stats, minimo_longitud):
-    if stats["longitud"] >= minimo_longitud:
-        return True
+def pasa_filtros(stats, min_len, min_gc, max_gc):
+    if stats["longitud"] < min_len:
+        return False
 
-    return False
+    if stats["gc"] < min_gc:
+        return False
+
+    if stats["gc"] > max_gc:
+        return False
+
+    return True
 
 
 # stats = {"encabezado": ">seq1", "longitud": 6, "gc": 0.66}
@@ -220,6 +226,12 @@ def parsear_argumentos():
 
     parser.add_argument("-o", "--output", required=True)
 
+    parser.add_argument("--min-len", type=int, default=0)
+
+    parser.add_argument("--min-gc", type=float, default=0)
+
+    parser.add_argument("--max-gc", type=float, default=1)
+
     args = parser.parse_args()
 
     return args
@@ -264,7 +276,7 @@ def main():
 
     stats = calcular_estadisticas(encabezado, secuencia)
 
-    cumple = pasa_filtros(stats, 5)
+    cumple = pasa_filtros(stats, args.min_len, args.min_gc, args.max_gc)
 
     if cumple:
         escribir_resultados(stats, args.output)
