@@ -78,7 +78,21 @@ print(resultado)
 
 
 # 5. `escribir_resultados(stats, ruta)`
+def escribir_resultados(stats, ruta):
+    archivo = open(ruta, "w")
 
+    archivo.write("Encabezado: " + stats["encabezado"] + "\n")
+
+    archivo.write("Longitud: " + str(stats["longitud"]) + "\n")
+
+    archivo.write("GC: " + str(stats["gc"]) + "\n")
+
+    archivo.close()
+
+
+stats = {"encabezado": ">seq1", "longitud": 6, "gc": 0.66}
+
+escribir_resultados(stats, "resultado.txt")
 
 # 6. `parsear_argumentos()`
 

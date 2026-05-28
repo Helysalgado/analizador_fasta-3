@@ -1,0 +1,3 @@
+Encabezado: >seq1
+Longitud: 6
+GC: 0.66
