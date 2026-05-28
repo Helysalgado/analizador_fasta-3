@@ -36,10 +36,10 @@ def leer_fasta(ruta):
     return encabezado, secuencia
 
 
-encabezado, secuencia = leer_fasta("prueba.fasta")
+# encabezado, secuencia = leer_fasta("prueba.fasta")
 
-print(encabezado)
-print(secuencia)
+# print(encabezado)
+# print(secuencia)
 
 
 # --------------------------------------------------
@@ -74,9 +74,9 @@ def calcular_gc(secuencia):
     return porcentaje
 
 
-resultado = calcular_gc("ATGCGC")
+# resultado = calcular_gc("ATGCGC")
 
-print(resultado)
+# print(resultado)
 
 
 # --------------------------------------------------
@@ -109,9 +109,9 @@ def calcular_estadisticas(encabezado, secuencia):
     return estadisticas
 
 
-stats = calcular_estadisticas(">seq1", "ATGCGC")
+# stats = calcular_estadisticas(">seq1", "ATGCGC")
 
-print(stats)
+# print(stats)
 
 
 # --------------------------------------------------
@@ -140,11 +140,11 @@ def pasa_filtros(stats, minimo_longitud):
     return False
 
 
-stats = {"encabezado": ">seq1", "longitud": 6, "gc": 0.66}
+# stats = {"encabezado": ">seq1", "longitud": 6, "gc": 0.66}
 
-resultado = pasa_filtros(stats, 5)
+# resultado = pasa_filtros(stats, 5)
 
-print(resultado)
+# print(resultado)
 
 
 # --------------------------------------------------
@@ -180,9 +180,9 @@ def escribir_resultados(stats, ruta):
     archivo.close()
 
 
-stats = {"encabezado": ">seq1", "longitud": 6, "gc": 0.66}
+# stats = {"encabezado": ">seq1", "longitud": 6, "gc": 0.66}
 
-escribir_resultados(stats, "resultado.txt")
+# escribir_resultados(stats, "resultado.txt")
 
 
 # --------------------------------------------------
@@ -220,11 +220,11 @@ def parsear_argumentos():
     return args
 
 
-args = parsear_argumentos()
+# args = parsear_argumentos()
 
-print(args.entrada)
+# print(args.entrada)
 
-print(args.salida)
+# print(args.salida)
 
 
 # --------------------------------------------------
